@@ -22,7 +22,7 @@ function AddBudgetModal() {
       id="mdlAddBudget"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="staticBackdropLabel"
       aria-hidden="true"
     >
@@ -40,8 +40,8 @@ function AddBudgetModal() {
               ></button>
             </div>
             <div className="modal-body">
-              <div class="mb-3">
-                <label for="name" className="form-label">
+              <div className="mb-3">
+                <label htmlFor="name" className="form-label">
                   Name
                 </label>
                 <input
@@ -52,8 +52,8 @@ function AddBudgetModal() {
                   ref={nameRef}
                 />
               </div>
-              <div class="mb-3">
-                <label for="max" className="form-label">
+              <div className="mb-3">
+                <label htmlFor="max" className="form-label">
                   Maximum
                 </label>
                 <input

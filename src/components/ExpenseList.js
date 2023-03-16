@@ -7,7 +7,7 @@ const ExpenseList = ({ budgetId, count, actionBtn }) => {
 
   return expenseList.slice(count ? count : expenseList.lenght).map((expense) => {
     return (
-      <div className="hstack gap-2 mt-1">
+      <div className="hstack gap-2 mt-1" key={expense.id}>
         <div className="fw-6 text-muted">{expense.date}</div>
         <div>{expense.description}</div>
         <div className="ms-auto text-end">{expense.amount}</div>
