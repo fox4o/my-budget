@@ -3,4 +3,7 @@
 React<\
 Bootstrap 5.2\
 \
-![My Budget](https://i.imgur.com/hnRpasm.png)
+
+<p align="center">
+<img src="https://i.imgur.com/hnRpasm.png" width="50%">
+</p>
