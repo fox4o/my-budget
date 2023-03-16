@@ -1,6 +1,6 @@
 # My first React application
 
-React<\
+React\
 Bootstrap 5.2\
 \
 
