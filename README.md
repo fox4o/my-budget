@@ -1,4 +1,5 @@
 # My first React application
 
-React
-Bootstrap 5.2
+<br>
+React<br>
+Bootstrap 5.2<br>
