@@ -1,5 +1,6 @@
 # My first React application
 
-<br>
-React<br>
-Bootstrap 5.2<br>
+React<\
+Bootstrap 5.2\
+\
+![My Budget](https://i.imgur.com/hnRpasm.png)
