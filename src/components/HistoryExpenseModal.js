@@ -4,7 +4,6 @@ import ExpenseList from "./ExpenseList";
 
 function HistoryEspenseModal() {
   const { budgetId, getBudgetExpenses } = useBudgets();
-  const expenses = getBudgetExpenses(budgetId);
 
   return (
     <div
@@ -29,16 +28,7 @@ function HistoryEspenseModal() {
             ></button>
           </div>
           <div className="modal-body">
-            <ExpenseList budgetId={budgetId} countList={expenses.lenght} actionBtn/>
-          </div>
-          <div className="modal-footer">
-            <button
-              className="btn btn-primary"
-              type="button"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
+            <ExpenseList budgetId={budgetId} actionBtn/>
           </div>
         </div>
       </div>

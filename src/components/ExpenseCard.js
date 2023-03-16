@@ -55,7 +55,7 @@ const ExpanseCard = ({ id, name, max }) => {
               style={{ width: (amount / max) * 100 + "%" }}
             ></div>
           </div>
-          <ExpenseList budgetId={id} />
+          <ExpenseList budgetId={id} count={-3} />
         </div>
       </div>
     </>
