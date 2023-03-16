@@ -1,16 +1,21 @@
 import React from "react";
 import { useBudgets } from "../contexts/BudgetContext";
 
-const ExpenseList = ({ budgetId }) => {
-  const { getBudgetExpenses } = useBudgets();
+const ExpenseList = ({ budgetId, count, actionBtn }) => {
+  const { getBudgetExpenses, deleteExpense } = useBudgets();
   const expenseList = getBudgetExpenses(budgetId);
 
-  return expenseList.slice(-3).map((expense) => {
+  return expenseList.slice(count ? count : -3).map((expense) => {
     return (
       <div className="hstack gap-2 mt-1">
         <div className="fw-6 text-muted">{expense.date}</div>
         <div>{expense.description}</div>
         <div className="ms-auto text-end">{expense.amount}</div>
+        {actionBtn && (
+          <button className="btn btn-sm btn-outline-danger" onClick={()=>deleteExpense(expense)}>
+            <i className="bi bi-trash"></i>
+          </button>
+        )}
       </div>
     );
   });

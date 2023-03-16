@@ -3,15 +3,11 @@ import { useBudgets } from "../contexts/BudgetContext";
 import ExpenseList from "./ExpenseList";
 
 const ExpanseCard = ({ id, name, max }) => {
-  const { setBudgetId, getBudgetExpenses } = useBudgets();
-  const amount = getBudgetExpenses(id).reduce(
-    (total, expanse) => total + expanse.amount,
-    0
-  );
+  const { setBudgetId, getBudgetExpenses, deleteBudget } =
+    useBudgets();
+  const expenses = getBudgetExpenses(id);
+  const amount = expenses.reduce((total, expanse) => total + expanse.amount, 0);
 
-  function handleClick() {
-    setBudgetId(id);
-  }
   return (
     <>
       <div className="card mt-3">
@@ -22,15 +18,29 @@ const ExpanseCard = ({ id, name, max }) => {
               {amount}
               <span className="text-muted ms-1">/ {max}</span>
             </div>
-            <button className="btn btn-sm btn-secondary">
-              <i className="bi bi-clock-history"></i>
-            </button>
+            {expenses.length > 0 ? (
+              <button
+                className="btn btn-sm btn-outline-secondary"
+                data-bs-toggle="modal"
+                data-bs-target="#mdlHistoryModal"
+                onClick={() => setBudgetId(id)}
+              >
+                <i className="bi bi-clock-history"></i>
+              </button>
+            ) : (
+              <button
+                className="btn btn-sm btn-outline-danger"
+                onClick={() => deleteBudget({ id })}
+              >
+                <i className="bi bi-trash"></i>
+              </button>
+            )}
             <div className="vr m-1"></div>
             <button
               className="btn btn-sm btn-outline-primary"
               data-bs-toggle="modal"
               data-bs-target="#mdlAddExpense"
-              onClick={() => handleClick()}
+              onClick={() => setBudgetId(id)}
             >
               <i className="bi bi-file-earmark-plus"></i>
             </button>
@@ -45,7 +55,7 @@ const ExpanseCard = ({ id, name, max }) => {
               style={{ width: (amount / max) * 100 + "%" }}
             ></div>
           </div>
-          <ExpenseList budgetId={id}/>
+          <ExpenseList budgetId={id} />
         </div>
       </div>
     </>

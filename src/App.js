@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import TotalCard from "./components/TotalCard";
 import ExpanseCard from "./components/ExpenseCard";
 import AddBudgetModal from "./components/AddBudgetModal";
 import AddExpenseModal from "./components/AddExpenseModal";
 import { useBudgets } from "./contexts/BudgetContext";
+import HistoryEspenseModal from "./components/HistoryExpenseModal";
 
 const App = () => {
   const { budgets, budgetId } = useBudgets();
@@ -28,12 +29,17 @@ const App = () => {
         </div>
         {budgets.map((budget) => {
           return (
-            <ExpanseCard key={budget.id} {...budget}></ExpanseCard>
+            <ExpanseCard
+              key={budget.id}
+              {...budget}
+              countList={-3}
+            ></ExpanseCard>
           );
         })}
       </div>
-      <AddBudgetModal/>
-      <AddExpenseModal budgetId={budgetId}/>
+      <AddBudgetModal />
+      <AddExpenseModal budgetId={budgetId} />
+      <HistoryEspenseModal />
     </>
   );
 };
