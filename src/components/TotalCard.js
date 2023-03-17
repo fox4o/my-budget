@@ -1,5 +1,6 @@
 import React from "react";
 import { useBudgets } from "../contexts/BudgetContext";
+import { currency } from "../utils";
 
 const TotalCard = () => {
   const { budgets, expenses } = useBudgets();
@@ -11,7 +12,8 @@ const TotalCard = () => {
   }, 0);
   const cardBg = (expenses, total) => {
     const ratio = expenses / total;
-    if (ratio < 0.5) return "bg-info";
+ 
+    if (ratio < 0.5 || expenses===0) return "bg-info";
     if (ratio < 0.75) return "bg-warning";
     return "bg-danger";
   };
@@ -21,9 +23,9 @@ const TotalCard = () => {
       <div className="card-body">
         <h3 className="card-title hstack align-items-baseline fw-normal">
           <div>Total</div>
-          <div className="ms-auto fs-3">
-            {totalExpenses}
-            <span className="text-muted ms-1">/ {totalBudgets}</span>
+          <div className="d-flex ms-auto fs-5">
+            {currency.format(totalExpenses)}
+            <span className="text-muted ms-1">/ {currency.format(totalBudgets)}</span>
           </div>
         </h3>
       </div>

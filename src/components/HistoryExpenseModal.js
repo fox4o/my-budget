@@ -3,7 +3,8 @@ import { useBudgets } from "../contexts/BudgetContext";
 import ExpenseList from "./ExpenseList";
 
 function HistoryEspenseModal() {
-  const { budgetId } = useBudgets();
+  const { budgetId, budgets } = useBudgets();
+  const budget = budgets.find(b=>b.id===budgetId);
 
   return (
     <div
@@ -19,7 +20,7 @@ function HistoryEspenseModal() {
         <div className="modal-content">
           <div className="modal-header">
             <h1 className="modal-title fs-5" id="staticBackdropLabel">
-              History
+              Expenses - {budget?.name}
             </h1>
             <button
               type="reset"
