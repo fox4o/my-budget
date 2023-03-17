@@ -26,13 +26,28 @@ export const BudgetProvider = ({ children }) => {
       ];
     });
   }
+
   function addBudget({ name, max }) {
-    setBudgets((prevBudget) => {
+/*    setBudgets((prevBudget) => {
       if (prevBudget.find((budget) => budget.name === name)) {
         return prevBudget;
       }
       return [...prevBudget, { id: uuidV4(), name, max }];
     });
+    */
+   setBudgets(
+    (prevBudget) => {
+      const i = prevBudget.findIndex(budget=>budget.name===name);
+      if(i>-1){
+        prevBudget[i]={...prevBudget[i],name,max};
+        // return prevBudget // not captured from useEffect()
+        // new array for useEffect()
+        return [...prevBudget];
+      }else{
+        return [...prevBudget, { id: uuidV4(), name, max }];
+      } 
+    }
+   );
   }
   function deleteBudget({ id }) {
     setBudgets((prevBudget) => {

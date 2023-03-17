@@ -8,7 +8,8 @@ import HistoryEspenseModal from "./components/HistoryExpenseModal";
 
 const App = () => {
   const { budgets, budgetId } = useBudgets();
-
+//TODO: currency
+//TODO: languages
   return (
     <>
       <div className="container">
