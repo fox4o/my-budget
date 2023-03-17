@@ -3,9 +3,10 @@ import { useBudgets } from "../contexts/BudgetContext";
 
 const ExpenseList = ({ budgetId, count, actionBtn }) => {
   const { getBudgetExpenses, deleteExpense } = useBudgets();
-  const expenseList = getBudgetExpenses(budgetId);
+  const expenses = getBudgetExpenses(budgetId);
 
-  return expenseList.slice(count ? count : expenseList.lenght).map((expense) => {
+  if(Object.keys(expenses).length===0) return (<div className="text-center text-muted">- Empty -</div>)
+  return expenses.slice(count ? count : expenses.lenght).map((expense) => {
     return (
       <div className="hstack gap-2 mt-1" key={expense.id}>
         <div className="fw-6 text-muted">{expense.date}</div>

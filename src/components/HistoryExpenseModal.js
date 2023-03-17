@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useBudgets } from "../contexts/BudgetContext";
 import ExpenseList from "./ExpenseList";
 
 function HistoryEspenseModal() {
-  const { budgetId, getBudgetExpenses } = useBudgets();
+  const { budgetId } = useBudgets();
 
   return (
     <div
@@ -28,7 +28,7 @@ function HistoryEspenseModal() {
             ></button>
           </div>
           <div className="modal-body">
-            <ExpenseList budgetId={budgetId} actionBtn/>
+            <ExpenseList budgetId={budgetId} actionBtn />
           </div>
         </div>
       </div>
