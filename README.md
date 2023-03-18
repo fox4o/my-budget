@@ -1,8 +1,8 @@
 # My first React application
 
 React\
-Bootstrap 5.2\
+Bootstrap 5.2
 
 <p align="center">
-<img src="https://i.imgur.com/hnRpasm.png" width="50%">
+<img src="https://i.imgur.com/gAR4Szv.png" width="50%">
 </p>
