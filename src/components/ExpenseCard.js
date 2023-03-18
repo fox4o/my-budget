@@ -35,9 +35,8 @@ const ExpanseCard = ({ id, name, max }) => {
                 <i className="bi bi-trash"></i>
               </button>
             )}
-            <div className="vr m-1"></div>
             <button
-              className="btn btn-sm btn-outline-primary"
+              className="btn btn-sm btn-outline-primary ms-1"
               data-bs-toggle="modal"
               data-bs-target="#mdlAddExpense"
               onClick={() => setBudgetId(id)}

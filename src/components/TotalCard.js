@@ -1,9 +1,12 @@
 import React from "react";
 import { useBudgets } from "../contexts/BudgetContext";
 import { currency } from "../utils";
+import useTranslation from "../hooks/useTranslations";
 
 const TotalCard = () => {
   const { budgets, expenses } = useBudgets();
+  const [__t] = useTranslation();
+
   const totalBudgets = budgets.reduce((total, budget) => {
     return (total = total + budget.max);
   }, 0);
@@ -22,7 +25,7 @@ const TotalCard = () => {
     <div className={"card mt-3 "+cardBg(totalExpenses,totalBudgets)}>
       <div className="card-body">
         <h3 className="card-title hstack align-items-baseline fw-normal">
-          <div>Total</div>
+          <div>{__t("Total")}</div>
           <div className="d-flex ms-auto fs-5">
             {currency.format(totalExpenses)}
             <span className="text-muted ms-1">/ {currency.format(totalBudgets)}</span>

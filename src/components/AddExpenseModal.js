@@ -1,12 +1,14 @@
 import React, { useRef } from "react";
 import { useBudgets } from "../contexts/BudgetContext";
+import useTranslation from "../hooks/useTranslations";
 
 function AddExpenseModal({ budgetId }) {
   const descriptionRef = useRef();
   const amountRef = useRef();
   const { setBudgetId, addExpense, budgets } = useBudgets();
+  const [__t] = useTranslation();
 
-  const budget = budgets.find((b) => (b.id === budgetId));
+  const budget = budgets.find((b) => b.id === budgetId);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -35,7 +37,7 @@ function AddExpenseModal({ budgetId }) {
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="staticBackdropLabel">
-                New Expense - {budget?.name}
+                {__t("New Expense")} - {budget?.name}
               </h1>
               <button
                 type="reset"
@@ -46,7 +48,7 @@ function AddExpenseModal({ budgetId }) {
             <div className="modal-body">
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">
-                  Description
+                  {__t("Description")}
                 </label>
                 <input
                   type="text"
@@ -58,7 +60,7 @@ function AddExpenseModal({ budgetId }) {
               </div>
               <div className="mb-3">
                 <label htmlFor="max" className="form-label">
-                  Amount
+                  {__t("Amount")}
                 </label>
                 <input
                   type="number"
@@ -77,7 +79,7 @@ function AddExpenseModal({ budgetId }) {
                 type="submit"
                 data-bs-dismiss="modal"
               >
-                Add
+                {__t("Add")}
               </button>
             </div>
           </div>

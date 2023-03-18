@@ -1,12 +1,14 @@
 import React from "react";
 import { useBudgets } from "../contexts/BudgetContext";
 import { currency } from "../utils";
+import useTranslation from "../hooks/useTranslations";
 
 const ExpenseList = ({ budgetId, count, actionBtn }) => {
   const { getBudgetExpenses, deleteExpense } = useBudgets();
   const expenses = getBudgetExpenses(budgetId);
+  const [__t] = useTranslation();
 
-  if(Object.keys(expenses).length===0) return (<div className="text-center text-muted">- Empty -</div>)
+  if(Object.keys(expenses).length===0) return (<div className="text-center text-muted">- {__t("Empty")} -</div>)
   return expenses.slice(count ? count : expenses.lenght).map((expense) => {
     return (
       <div className="hstack gap-2 mt-1" key={expense.id}>

@@ -1,10 +1,12 @@
 import React from "react";
 import { useBudgets } from "../contexts/BudgetContext";
 import ExpenseList from "./ExpenseList";
+import useTranslation from "../hooks/useTranslations";
 
 function HistoryEspenseModal() {
   const { budgetId, budgets } = useBudgets();
   const budget = budgets.find(b=>b.id===budgetId);
+  const [__t] = useTranslation();
 
   return (
     <div
@@ -20,7 +22,7 @@ function HistoryEspenseModal() {
         <div className="modal-content">
           <div className="modal-header">
             <h1 className="modal-title fs-5" id="staticBackdropLabel">
-              Expenses - {budget?.name}
+              {__t("Expenses")} - {budget?.name}
             </h1>
             <button
               type="reset"

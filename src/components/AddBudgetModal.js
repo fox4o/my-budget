@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
 import { useBudgets } from "../contexts/BudgetContext";
+import useTranslation from "../hooks/useTranslations";
 
 function AddBudgetModal() {
   const nameRef = useRef();
   const maxRef = useRef();
   const { addBudget } = useBudgets();
+  const [__t] = useTranslation();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -31,7 +33,7 @@ function AddBudgetModal() {
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="staticBackdropLabel">
-                New Budget
+                {__t("New Budget")}
               </h1>
               <button
                 type="reset"
@@ -42,7 +44,7 @@ function AddBudgetModal() {
             <div className="modal-body">
               <div className="mb-3">
                 <label htmlFor="name" className="form-label">
-                  Name
+                {__t("Name")}
                 </label>
                 <input
                   type="text"
@@ -54,7 +56,7 @@ function AddBudgetModal() {
               </div>
               <div className="mb-3">
                 <label htmlFor="max" className="form-label">
-                  Maximum
+                  {__t("Maximum")}
                 </label>
                 <input
                   type="number"
@@ -73,7 +75,7 @@ function AddBudgetModal() {
                 type="submit"
                 data-bs-dismiss="modal"
               >
-                Add
+                {__t("Add")}
               </button>
             </div>
           </div>

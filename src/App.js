@@ -5,16 +5,19 @@ import AddBudgetModal from "./components/AddBudgetModal";
 import AddExpenseModal from "./components/AddExpenseModal";
 import { useBudgets } from "./contexts/BudgetContext";
 import HistoryEspenseModal from "./components/HistoryExpenseModal";
+import LanguageDropdown from "./components/LanguageDropdown";
+import useTranslation from "./hooks/useTranslations";
 
 const App = () => {
   const { budgets, budgetId } = useBudgets();
-//TODO: currency
-//TODO: languages
+  const [__t] = useTranslation();
+
   return (
     <>
       <div className="container">
         <div className="hstack gap-2 mt-3">
-          <h1 className="me-auto">Budget</h1>
+            <h1 className="me-auto">{__t('My budget')}</h1>
+          <LanguageDropdown />
           <button
             className="btn btn-sm btn-outline-primary"
             data-bs-toggle="modal"
@@ -26,7 +29,7 @@ const App = () => {
         <TotalCard />
 
         <div className="hstack gap-2 mt-3">
-          <h3 className="me-auto">Expanses</h3>
+          <h3 className="me-auto">{__t("Expenses")}</h3>
         </div>
         {budgets.map((budget) => {
           return (
