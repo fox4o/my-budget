@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkmy_budget=self.webpackChunkmy_budget||[]).push([[790],{790:function(e){e.exports={}}}]);
