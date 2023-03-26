@@ -16,20 +16,24 @@ const App = () => {
     <>
       <div className="container">
         <div className="hstack gap-2 mt-3">
-            <h1 className="me-auto">{__t('My budget')}</h1>
+          <h1 className="me-auto">
+            <i className="bi bi-cart pe-1"></i>
+            {__t("My budget")}
+          </h1>
+
           <LanguageDropdown />
+        </div>
+        <TotalCard />
+
+        <div className="hstack gap-2 mt-3">
+          <h3 className="me-auto">{__t("Budgets")}</h3>
           <button
             className="btn btn-sm btn-outline-primary"
             data-bs-toggle="modal"
             data-bs-target="#mdlAddBudget"
           >
-            <i className="bi bi-folder-plus"></i>
+            <i className="bi bi-plus-lg"></i>
           </button>
-        </div>
-        <TotalCard />
-
-        <div className="hstack gap-2 mt-3">
-          <h3 className="me-auto">{__t("Expenses")}</h3>
         </div>
         {budgets.map((budget) => {
           return (

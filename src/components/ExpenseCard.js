@@ -41,7 +41,7 @@ const ExpanseCard = ({ id, name, max }) => {
               data-bs-target="#mdlAddExpense"
               onClick={() => setBudgetId(id)}
             >
-              <i className="bi bi-file-earmark-plus"></i>
+              <i className="bi bi-journal-plus"></i>
             </button>
           </h4>
           <div className="progress rounded-pill">
