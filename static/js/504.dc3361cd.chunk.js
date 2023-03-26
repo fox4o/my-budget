@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_budget=self.webpackChunkmy_budget||[]).push([[504],{504:function(e){e.exports=JSON.parse('{"My budget":"Il mio budget","Total":"Totale","Expenses":"Spese","New Budget":"Nuovo budget","New Expense":"Nuova spesa","Name":"Nome","Maximum":"Massimo","Description":"Descrizione","Amount":"Importo","Add":"Aggiungi","Empty":"Vuoto"}')}}]);
